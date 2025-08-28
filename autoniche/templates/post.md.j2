@@ -1,0 +1,27 @@
+# {{ item.title }}
+
+_Data: {{ date }}_
+
+{{ item.description or "Krótki opis tego miejsca pojawi się tutaj, jeśli dostępny w Wikidata." }}
+
+{% if item.inception_year %}• Rok powstania: {{ item.inception_year }}\
+{% endif %}
+{% if item.lat and item.lon %}• Współrzędne: {{ item.lat }}, {{ item.lon }}\
+{% endif %}
+{% if item.website %}• Strona: {{ item.website }}\
+{% endif %}
+
+---
+
+{{ affiliate_insert }}
+
+{% if affiliate_links %}
+**Polecane:**
+{% for link in affiliate_links %}
+- [{{ link.label }}]({{ link.url }})
+{% endfor %}
+{% endif %}
+
+---
+
+<small>Dane: Wikidata (CC0). {% if item.image_page %}Jeśli widzisz obraz, jego strona: {{ item.image_page }} (licencja: {{ item.image_license or '—' }}, autor: {{ item.image_author or '—' }}).{% endif %}</small>
