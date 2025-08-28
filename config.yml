@@ -1,0 +1,32 @@
+site:
+  name: "Polskie Parki Narodowe – ciekawostki"
+  base_url: "https://koszmatta-ship-it.github.io/autoniche"
+  output_dir: "docs"
+  language: "pl"
+  items_per_run: 3
+  enable_images: false
+  enable_rss: true
+  enable_bluesky: false
+  enable_telegram: false
+
+niche:
+  name: "Parki narodowe w Polsce"
+  sparql: |
+    SELECT ?item WHERE {
+      ?item wdt:P31 wd:Q46169 .
+      ?item wdt:P17 wd:Q36 .
+    }
+
+affiliate:
+  insert_paragraph: "Psst… jeśli lubisz takie miejsca, sprawdź nasze rekomendacje poniżej."
+  links:
+    - label: "Przewodniki po Polsce (książki)"
+      url: "https://example.com/affid=TWÓJ_ID"
+    - label: "Mapa offline na telefon"
+      url: "https://example.com/affid=TWÓJ_ID2"
+
+social:
+  bluesky:
+    post_template: "Nowy wpis: {{ title }} — {{ url }}"
+  telegram:
+    post_template: "Nowy wpis: <b>{{ title }}</b>\n{{ url }}"
