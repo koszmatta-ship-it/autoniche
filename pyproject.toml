@@ -1,0 +1,10 @@
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "B", "UP", "W"]
+ignore = ["E203", "E501"]
+# Python 3.11 target
+target-version = "py311"
+
+[tool.ruff.isort]
+combine-as-imports = true
+known-first-party = ["autoniche"]
